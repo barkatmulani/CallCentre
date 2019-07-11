@@ -1,0 +1,75 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1>
+    {{ title }}
+  </h1>
+
+  <form [formGroup]="frmGroup">
+    <div class="container container-fluid">
+      <div class="row">
+          <div class="col-3">
+            <div class="row">
+              <div class="col-5">Call Type</div>
+              <div class="col-7">
+                <ng-select  formControlName="callTypeId"
+                            class="control-label border"
+                            [items]="callTypeList"
+                            [clearable]="false"
+                            bindValue="callTypeId"
+                            bindLabel="callTypeDesc">
+                </ng-select>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-3">
+          <div class="row">
+              <label class="col-5">Date sold</label>
+              <!-- <mat-form-field class="col-6 p-0"> -->
+                
+                  <input formControlName="fromDate" matInput class="col-5" [matDatepicker]="picker" placeholder="Choose a date">
+                  <mat-datepicker-toggle class="col-1" matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                
+              <!-- </mat-form-field> -->
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="row">
+            <label class="col-3">to</label>
+            
+            <input formControlName="toDate" matInput class="col-5" [matDatepicker]="picker2" placeholder="Choose a date">
+            <mat-datepicker-toggle class="col-1" matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+
+          </div>
+        </div>
+        
+        <div class="col-3">
+          <div class="row">
+            <label class="col-4">Status</label>
+            <div class="col-8">
+              <ng-select  formControlName="statusId"
+                          class="control-label border"
+                          [items]="statusList"
+                          [clearable]="true"
+                          bindValue="statusId"
+                          bindLabel="statusDesc">
+              </ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <a class="btn btn-success float-right" (click)="onSearchClicked()">Search</a>
+  <br/><br/>
+  <app-table  [orderList]="displayOrderList"
+              [statusList]="statusList"
+              (rowClicked)="onRowClicked($event)">
+  </app-table>
+  <br/>
+  <a class="btn btn-primary float-right" [class.disabled]="selectedRow === -1" (click)="openDialog()">Make Call</a>
+</div>

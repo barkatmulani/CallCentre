@@ -1,0 +1,14 @@
+<table class="container-fluid table-bordered table-striped table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Date Sold</th>
+    <th>Status</th>
+  </tr>
+  <ng-container *ngFor="let order of orderList; let i = index">
+    <tr (click)="onRowClicked(i)" class="table-row" [ngClass]="{ 'active-row' : i === activeRow }">
+      <td>{{order.name}}</td>
+      <td>{{order.datesold}}</td>
+      <td>{{getStatusDesc(order.statusId)}}</td>
+    </tr>
+  </ng-container>
+</table>  

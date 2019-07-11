@@ -1,0 +1,42 @@
+
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Call In Use</h4>
+  </div>
+  <div class="modal-body">
+    <div class="container container-fluid">
+      <h6>Customer</h6>
+      <div [formGroup]="frmGroup">
+        <div class="font-control">
+          <label class="col-4">Title</label>
+          <input class="col-4" formControlName="title"/>
+        </div>
+        <div class="font-control">
+          <label class="col-4">First Name</label>
+          <input class="col-4"  formControlName="firstName"/>
+        </div>
+        <div class="font-control">
+          <label class="col-4">Surname</label>
+          <input class="col-4"  formControlName="surName"/>
+        </div>
+        <div class="font-control">
+          <label class="col-4">Mobile</label>
+          <input class="col-4"  formControlName="mobilePhone"/>
+          <a class="btn btn-primary offset-1 col-3" (click)="onCallClicked(1)"><small>Call Mobile Phone</small></a>
+        </div>
+        <div class="font-control">
+          <label class="col-4">Home</label>
+          <input class="col-4"  formControlName="homePhone"/>
+          <a class="btn btn-primary offset-1 col-3" (click)="onCallClicked(2)"><small>Call Home Phone</small></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button mat-button class="btn btn-success" [mat-dialog-close]="frmGroup.value" cdkFocusInitial>Update</button>
+    <button mat-button class="btn btn-warning" (click)="onResetClicked()">Reset</button>
+  </div>
+  <hr>
+  <button mat-button class="btn btn-primary float-right" (click)="onCallComplete()" cdkFocusInitial>Call Completed</button>
+
+  <pre>{{closeResult}}</pre>

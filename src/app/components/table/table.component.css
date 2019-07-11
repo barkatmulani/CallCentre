@@ -1,0 +1,14 @@
+.table-hover > tbody > tr.table-row:hover {
+    color: #f0fef0;
+    background-color: #a0a0a0;
+}
+
+.active-row {
+    color: #f0fef0;
+    background-color: #707070 !important;
+}
+
+th {
+    color: white;
+    background-color: #303030
+}
